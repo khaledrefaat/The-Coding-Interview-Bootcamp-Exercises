@@ -34,25 +34,24 @@
 ////////////////////////////////////////////////////////////////////////////////
 // // My Recursive solution to the problem
 // function steps(n) {
-// function printHash(count, n, string = '') {
-//     if (n === 0) return console.log(string);
+//     function printHash(count, n, string = '') {
+//         if (n === 0) return console.log(string);
 //
-//     if (count > 0) {
-//         string += '#';
-//         count--;
-//         n--;
-//     } else {
-//         string += ' ';
-//         n--
+//         if (count > 0) {
+//             string += '#';
+//             count--;
+//             n--;
+//         } else {
+//             string += ' ';
+//             n--
+//         }
+//         printHash(count, n, string);
 //     }
-//     printHash(count, n, string);
-// }
 //
-// for (let i = 1; i <= n; i++) {
-//     printHash(i, n);
+//     for (let i = 1; i <= n; i++) {
+//         printHash(i, n);
+//     }
 // }
-// }
-
 
 function steps(n, row = 0, stairs = '') {
     if (n === row) return;
@@ -67,5 +66,6 @@ function steps(n, row = 0, stairs = '') {
     }
     steps(n, row, stairs);
 }
+
 
 module.exports = steps;
