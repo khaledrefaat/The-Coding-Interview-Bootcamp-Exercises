@@ -51,10 +51,37 @@
 // }
 
 // // This is a very Complex solution requires to look at the episode of solving this
-function fib(n) {
+// // and it's a O of Exponential Time (2 ^ n) (Worse than O(n^2))
+// function fib(n) {
+//     if (n < 2) return n;
+//
+//     return fib(n - 1) + fib(n - 2);
+// }
+
+
+// // Applying Memoization on stephen recursive solution
+
+function memoize(fn) {
+    const cache = {};
+    return function (...args) {
+        if (cache[args]) return cache[args];
+
+        // // to be honest i didn't understand why we need .apply here, I did even remove .apply and call the function without it and nothing happened
+        const results = fn.apply(this, args);
+        cache[args] = results;
+
+        return results;
+    };
+}
+
+function slowFib(n) {
     if (n < 2) return n;
 
     return fib(n - 1) + fib(n - 2);
 }
+
+const fib = memoize(slowFib);
+
+fib(5);
 
 module.exports = fib;
