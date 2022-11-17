@@ -8,6 +8,53 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+
+// // My Iterative Solution
+// function fib(n) {
+//     if (n === 1) return 1;
+//
+//     const arr = [0, 1];
+//     for (let i = 1; i < n; i++) {
+//         let fib = arr[i] + arr[i - 1];
+//         arr.push(fib);
+//     }
+//     console.log(arr);
+//
+//     return arr[n - 1] + arr[n - 2];
+// }
+
+// // My Recursive Solution
+// function fib(n, arr = [0, 1], counter = 1) {
+//     if (n === 1) return 1;
+//
+//     if (counter === n) return arr[n - 1] + arr[n - 2];
+//
+//     arr.push(arr[counter] + arr[counter - 1]);
+//     return fib(n, arr, counter + 1);
+// }
+
+//////////////////////////////////////////////////////////////////////////
+// // Stephen Solution
+
+// function fib(n) {
+//     const result = [0, 1];
+//
+//     // // Here stephen starts from 2 to avoid the first if statement I have
+//     for (let i = 2; i <= n; i++) {
+//         const a = result[i - 1];
+//         const b = result[i - 2];
+//         result.push(a + b);
+//     }
+//
+//     // // and actually no need to add result[n - 1] + result[n - 2] because result[n] already is the answer
+//     return result[n];
+// }
+
+// // This is a very Complex solution requires to look at the episode of solving this
+function fib(n) {
+    if (n < 2) return n;
+
+    return fib(n - 1) + fib(n - 2);
+}
 
 module.exports = fib;
